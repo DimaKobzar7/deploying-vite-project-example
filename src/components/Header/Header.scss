@@ -1,0 +1,68 @@
+@import "../../assets/mixins";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__language {
+    position: relative;
+    width: 34px;
+    height: 34px;
+
+    @include onDesktop {
+      width: 38px;
+      height: 38px;
+    }
+
+    // язык укр заезжяет обратн быстрее чем надо но в тз толлько про показ есть речь
+    &:hover .header__switch-link--RU {
+      left: 30px;
+      opacity: 1;
+    }
+
+    &:hover .header__switch-link--UA {
+      left: 75px;
+      opacity: 1;
+    }
+
+    img {
+      width: 34px;
+      height: 34px;
+
+      @include onDesktop {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  }
+
+  &__switch-link {
+    position: absolute;
+    left: 0;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 14px;
+    color: #373737;
+    transition: left 1s, opacity 1s;
+
+    @include onTablet {
+      font-size: 16px;
+    }
+
+    &--RU,
+    &--UA {
+      opacity: 0;
+    }
+  }
+}
+
+// @keyframes show {
+//   from {
+//     transform: rotate(0deg);
+//   }
+
+//   to {
+//     transform: rotate(-360deg);
+//   }
+// }

@@ -1,0 +1,47 @@
+@import "../../assets/mixins";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Grtsk Giga";
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.section {
+  background-color: #bebebe;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 16px;
+  max-width: 1440px;
+
+  @include onTablet {
+    padding: 0 24px;
+  }
+}
+
+// @media (min-width: 768px) {
+//   .container {
+//     padding: 0 24px;
+//   }
+// }
+
+/* сделай отдельным елементом */
+.hamburger-menu {
+  visibility: visible;
+
+  @include onTablet {
+    visibility: hidden;
+  }
+}
+
+// @media (min-width: 768px) {
+//   .hamburger-menu {
+//     visibility: hidden;
+//   }
+// }

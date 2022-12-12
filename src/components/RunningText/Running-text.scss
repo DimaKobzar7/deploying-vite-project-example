@@ -1,0 +1,91 @@
+@import "../../assets/mixins";
+
+.running-text {
+  position: relative;
+
+  top: -117vw;
+  transform: rotate(-69deg);
+
+  white-space: nowrap;
+
+  @include onTablet {
+    top: -50vw;
+    transform: rotate(-52deg);
+  }
+
+  @include onDesktop {
+    top: -37vw;
+    transform: rotate(-42deg);
+  }
+
+  @include onWideDesktop {
+    top: -26vw;
+    transform: rotate(-33deg);
+  }
+
+  &__item {
+    margin: 0;
+
+    font-style: italic;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    opacity: 0.1;
+
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #373737;
+    color: transparent;
+
+    white-space: nowrap;
+
+    @include onTablet {
+      font-size: 42px;
+    }
+
+    @include onWideDesktop {
+      font-size: 52px;
+    }
+
+    &--right {
+      animation: runningTextUp 4s infinite linear;
+    }
+
+    &--left {
+      // транслейт тут не нужен наверно
+      transform: rotate(180deg) translateX(-30%);
+      animation: runningTextDown 4s infinite linear;
+
+      @include onTablet {
+        margin-bottom: 24px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 36px;
+      }
+    }
+  }
+}
+
+@keyframes runningTextDown {
+  from {
+    transform: translate(200%, 0) rotate(180deg);
+  }
+
+  to {
+    transform: translate(-200%, 0) rotate(180deg);
+  }
+}
+
+@keyframes runningTextUp {
+  from {
+    transform: translate(-200%, 0);
+  }
+
+  to {
+    transform: translate(200%, 0);
+  }
+}
